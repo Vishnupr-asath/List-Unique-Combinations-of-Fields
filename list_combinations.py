@@ -7,40 +7,42 @@ from collections import defaultdict
 def extract_fields(insn):
     """
     Extract opcode, funct3, funct7 from instruction definition.
-    Handles both flat dicts and 'fields' as list of dicts.
+    Uses the 'fields' section in YAML.
     """
-    opcode = None
-    funct3 = None
-    funct7 = None
+    opcode = funct3 = funct7 = None
 
-    # Case 1: instruction already has direct keys
-    if "opcode" in insn or "funct3" in insn or "funct7" in insn:
-        opcode = insn.get("opcode")
-        funct3 = insn.get("funct3")
-        funct7 = insn.get("funct7")
-
-    # Case 2: fields inside a list of dicts
-    elif "fields" in insn and isinstance(insn["fields"], list):
+    if "fields" in insn and isinstance(insn["fields"], list):
         for f in insn["fields"]:
-            if not isinstance(f, dict):
-                continue
             name = f.get("name")
             val = f.get("value")
-            if name == "opcode":
-                opcode = val
-            elif name == "funct3":
-                funct3 = val
-            elif name == "funct7":
-                funct7 = val
+            if val is not None:
+                # Convert binary or hex strings to integer
+                if isinstance(val, str):
+                    if val.startswith("0b"):
+                        val = int(val, 2)
+                    elif val.startswith("0x"):
+                        val = int(val, 16)
+                # Assign to correct field
+                if name == "opcode":
+                    opcode = val
+                elif name == "funct3":
+                    funct3 = val
+                elif name == "funct7":
+                    funct7 = val
 
     return {"opcode": opcode, "funct3": funct3, "funct7": funct7}
 
 def collect_combinations(root):
+    """
+    Collect all unique (opcode, funct3, funct7) combinations from YAML files in the root directory.
+    Groups results by file name (without extension).
+    """
     combos = defaultdict(list)
 
     for fname in os.listdir(root):
         if not fname.endswith(".yaml"):
             continue
+
         path = os.path.join(root, fname)
         with open(path, "r") as f:
             try:
@@ -57,7 +59,8 @@ def collect_combinations(root):
         for insn in data:
             fields = extract_fields(insn)
             tup = (fields["opcode"], fields["funct3"], fields["funct7"])
-            if tup not in seen:  # avoid duplicates
+            # Only add if at least one field is not None and it's not a duplicate
+            if tup not in seen and any(fields.values()):
                 combos[extension].append(fields)
                 seen.add(tup)
 
@@ -65,7 +68,7 @@ def collect_combinations(root):
 
 def main():
     parser = argparse.ArgumentParser(description="List unique opcode/funct3/funct7 combinations")
-    parser.add_argument("--root", type=str, required=True, help="Root directory containing YAML files")
+    parser.add_argument("--root", type=str, required=True, help="Directory with YAML files")
     parser.add_argument("--out", type=str, required=True, help="Output JSON file")
     args = parser.parse_args()
 
@@ -73,6 +76,8 @@ def main():
 
     with open(args.out, "w") as f:
         json.dump(combos, f, indent=2)
+
+    print(f"Saved combinations to {args.out}")
 
 if __name__ == "__main__":
     main()
