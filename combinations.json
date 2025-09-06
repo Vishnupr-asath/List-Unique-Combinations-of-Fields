@@ -1,0 +1,71 @@
+{
+  "rv32i": [
+    {
+      "opcode": 51,
+      "funct3": 0,
+      "funct7": 0
+    },
+    {
+      "opcode": 51,
+      "funct3": 0,
+      "funct7": 32
+    },
+    {
+      "opcode": 51,
+      "funct3": 7,
+      "funct7": 0
+    },
+    {
+      "opcode": 51,
+      "funct3": 6,
+      "funct7": 0
+    },
+    {
+      "opcode": 51,
+      "funct3": 4,
+      "funct7": 0
+    }
+  ],
+  "rv32m": [
+    {
+      "opcode": 51,
+      "funct3": 0,
+      "funct7": 1
+    },
+    {
+      "opcode": 51,
+      "funct3": 1,
+      "funct7": 1
+    },
+    {
+      "opcode": 51,
+      "funct3": 2,
+      "funct7": 1
+    },
+    {
+      "opcode": 51,
+      "funct3": 3,
+      "funct7": 1
+    },
+    {
+      "opcode": 51,
+      "funct3": 4,
+      "funct7": 1
+    },
+    {
+      "opcode": 51,
+      "funct3": 5,
+      "funct7": 1
+    },
+    {
+      "opcode": 51,
+      "funct3": 6,
+      "funct7": 1
+    },
+    {
+      "opcode": 51,
+      "funct3": 7,
+      "funct7": 1
+    }
+  ]
+}
