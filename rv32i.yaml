@@ -1,0 +1,39 @@
+- name: ADD
+  encoding:
+    match: 0000000----------000-----0110011
+  fields:
+    - { name: opcode, value: 0b0110011 }
+    - { name: funct3, value: 0b000 }
+    - { name: funct7, value: 0b0000000 }
+
+- name: SUB
+  encoding:
+    match: 0100000----------000-----0110011
+  fields:
+    - { name: opcode, value: 0b0110011 }
+    - { name: funct3, value: 0b000 }
+    - { name: funct7, value: 0b0100000 }
+
+- name: AND
+  encoding:
+    match: 0000000----------111-----0110011
+  fields:
+    - { name: opcode, value: 0b0110011 }
+    - { name: funct3, value: 0b111 }
+    - { name: funct7, value: 0b0000000 }
+
+- name: OR
+  encoding:
+    match: 0000000----------110-----0110011
+  fields:
+    - { name: opcode, value: 0b0110011 }
+    - { name: funct3, value: 0b110 }
+    - { name: funct7, value: 0b0000000 }
+
+- name: XOR
+  encoding:
+    match: 0000000----------100-----0110011
+  fields:
+    - { name: opcode, value: 0b0110011 }
+    - { name: funct3, value: 0b100 }
+    - { name: funct7, value: 0b0000000 }
