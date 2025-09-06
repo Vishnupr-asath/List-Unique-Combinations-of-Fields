@@ -1,0 +1,63 @@
+- name: MUL
+  encoding:
+    match: 0000001----------000-----0110011
+  fields:
+    - { name: opcode, value: 0b0110011 }
+    - { name: funct3, value: 0b000 }
+    - { name: funct7, value: 0b0000001 }
+
+- name: MULH
+  encoding:
+    match: 0000001----------001-----0110011
+  fields:
+    - { name: opcode, value: 0b0110011 }
+    - { name: funct3, value: 0b001 }
+    - { name: funct7, value: 0b0000001 }
+
+- name: MULHSU
+  encoding:
+    match: 0000001----------010-----0110011
+  fields:
+    - { name: opcode, value: 0b0110011 }
+    - { name: funct3, value: 0b010 }
+    - { name: funct7, value: 0b0000001 }
+
+- name: MULHU
+  encoding:
+    match: 0000001----------011-----0110011
+  fields:
+    - { name: opcode, value: 0b0110011 }
+    - { name: funct3, value: 0b011 }
+    - { name: funct7, value: 0b0000001 }
+
+- name: DIV
+  encoding:
+    match: 0000001----------100-----0110011
+  fields:
+    - { name: opcode, value: 0b0110011 }
+    - { name: funct3, value: 0b100 }
+    - { name: funct7, value: 0b0000001 }
+
+- name: DIVU
+  encoding:
+    match: 0000001----------101-----0110011
+  fields:
+    - { name: opcode, value: 0b0110011 }
+    - { name: funct3, value: 0b101 }
+    - { name: funct7, value: 0b0000001 }
+
+- name: REM
+  encoding:
+    match: 0000001----------110-----0110011
+  fields:
+    - { name: opcode, value: 0b0110011 }
+    - { name: funct3, value: 0b110 }
+    - { name: funct7, value: 0b0000001 }
+
+- name: REMU
+  encoding:
+    match: 0000001----------111-----0110011
+  fields:
+    - { name: opcode, value: 0b0110011 }
+    - { name: funct3, value: 0b111 }
+    - { name: funct7, value: 0b0000001 }
