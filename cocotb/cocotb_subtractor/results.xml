@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1759123534" />
+    <testcase name="subtractor_test" classname="test_subtractor" file="/home/vsysuser/workspace/RISCV_cohort/cocotb/cocotb_subtractor/test/test_subtractor.py" lineno="5" time="0.06165432929992676" sim_time_ns="12.0" ratio_time="194.63353403171732" />
+  </testsuite>
+</testsuites>

@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1759124190" />
+    <testcase name="mux_generic_test" classname="test_mux" file="/home/vsysuser/workspace/RISCV_cohort/cocotb/cocotb_mux/test/test_mux.py" lineno="5" time="0.00423121452331543" sim_time_ns="9.0" ratio_time="2127.048853327323" />
+  </testsuite>
+</testsuites>
