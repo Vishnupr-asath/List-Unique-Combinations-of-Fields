@@ -60,7 +60,6 @@ python3 list_combinations.py --root extensions --out combinations.json
 ```
 cat combinations.json
 ```
----
 
 ## GIT COMMANDS
 ```
@@ -84,10 +83,6 @@ git push
 ```
 -------
 # Learning RTL Verification with Cocotb
-
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Language: Python](https://img.shields.io/badge/Language-Python-blue.svg)
-![Language: Verilog](https://img.shields.io/badge/Language-Verilog-green.svg)
 
 This repository contains a series of hands-on experiments designed to demonstrate modern RTL (Register-Transfer Level) verification techniques using Verilog and the Python-based [Cocotb](https://www.cocotb.org/) framework. The projects progress from simple combinational logic blocks to the block-level verification of a core component of a RISC-V processor, inspired by the [SHAKTI Processor Project](https://shakti.org.in/).
 
@@ -185,7 +180,3 @@ The test for the ALU (`cocotb_shakti_alu`) demonstrates a professional verificat
 3.  **Constrained Random Verification (CRV):** A second test (`alu_random_test`) runs hundreds of iterations, each time generating random inputs and a random operation. It compares the DUT's output against the golden model's output. This powerful technique is excellent at finding unexpected bugs that manual tests might miss.
 
 This two-pronged approach builds very high confidence in the correctness of the hardware block before it's integrated into a larger system.
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
