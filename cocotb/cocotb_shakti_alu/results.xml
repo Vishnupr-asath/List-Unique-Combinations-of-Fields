@@ -1,0 +1,7 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1759127486" />
+    <testcase name="alu_corner_case_test" classname="test_alu" file="/home/vsysuser/workspace/RISCV_cohort/cocotb/cocotb_shakti_alu/test/test_alu.py" lineno="74" time="0.08196282386779785" sim_time_ns="14.0" ratio_time="170.80914662702858" />
+    <testcase name="alu_random_test" classname="test_alu" file="/home/vsysuser/workspace/RISCV_cohort/cocotb/cocotb_shakti_alu/test/test_alu.py" lineno="119" time="0.5076565742492676" sim_time_ns="500.0" ratio_time="984.9178073570893" />
+  </testsuite>
+</testsuites>
